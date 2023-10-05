@@ -14,45 +14,13 @@ body {
 
 /* Layout */
 
-.marquee {
-  height: 25px;
-  width: 420px;
-
-  overflow: hidden;
-  position: relative;
-}
-
-.marquee div {
-  display: block;
-  width: 200%;
-  height: 30px;
-  margin-top: 5px;
-  position: absolute;
-  overflow: hidden;
-
-  animation: marquee 7s linear infinite;
-}
-
-.marquee span {
-  float: left;
-  width: 50%;
-}
-
-@keyframes marquee {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: -100%;
-  }
-}
-
 nav {
   width: 100%;
   height: 20rem;
   background-image: url('./images/voyage-bis.webp');
   background-size: cover;
   padding: 1rem;
+  margin-bottom: 3rem;
 }
 
 main {
@@ -71,7 +39,28 @@ section {
   flex-direction: column;
   margin-top: 2rem;
 }
-
+.footer {
+  max-width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 200px;
+  padding: 20px;
+  padding: 1em;
+  border: 1em solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    repeating-linear-gradient(
+        -45deg,
+        #f69ec4 0,
+        #f69ec4 12.5%,
+        transparent 0,
+        transparent 25%,
+        #7eb4e2 0,
+        #7eb4e2 37.5%,
+        transparent 0,
+        transparent 50%
+      )
+      0 / 5em 5em;
+}
 /* Components */
 
 .navbar__items {
@@ -83,14 +72,16 @@ section {
 .navbar__list {
   list-style: none;
   text-transform: uppercase;
-  padding: 0.5rem;
-  background-color: #f8efde;
+  padding: 2px;
+  backdrop-filter: blur(35px) saturate(90%);
+  border-radius: 5px;
 }
 
 .navbar__link {
   color: black;
   text-decoration: none;
-  font-size: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 .navbar__title {
@@ -99,6 +90,41 @@ section {
   font-size: 2rem;
   text-align: center;
   margin-top: 2rem;
+}
+
+.marquee {
+  height: 25px;
+  width: 420px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 3rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding-bottom: 3rem;
+  padding-top: 1rem;
+}
+.marquee div {
+  display: block;
+  width: 200%;
+  height: 30px;
+  margin-top: 5px;
+  position: absolute;
+  overflow: hidden;
+  animation: marquee 5s linear infinite;
+}
+
+.marquee span {
+  float: left;
+  width: 50%;
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
 }
 
 .grid__article {
@@ -140,14 +166,12 @@ section {
 .sidebar__grid {
   display: flex;
   flex-direction: column;
-  padding: 4rem 2rem;
-  height: 40rem;
+  padding: 2rem;
 }
 .sidebar__article {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
   margin: 2rem 0;
 }
 .sidebar__article > h1 {
@@ -159,10 +183,82 @@ section {
   padding-bottom: 2rem;
 }
 
+.sidebar_iframe {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 2rem;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: inset(0% 0% 0% 0% round 10px);
+}
+
 .sidebar__article > p {
   text-align: justify;
   overflow: auto;
 }
 
-@media (width >) {
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__title {
+  padding: 1rem 0;
+  font-weight: 300;
+  letter-spacing: 1rem;
+  text-align: center;
+}
+.footer__text {
+  padding: 1rem 0;
+  font-weight: 300;
+}
+.input {
+  width: 100%;
+  padding: 0.5rem 0;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  margin-top: 2rem;
+  background: linear-gradient(to bottom right, #ef4765, #ff9a5a);
+  border: 0;
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+button:not([disabled]):focus {
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5),
+    -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5),
+    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+button:not([disabled]):hover {
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5),
+    -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5),
+    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
 }
